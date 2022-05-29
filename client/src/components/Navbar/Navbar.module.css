@@ -1,0 +1,59 @@
+.contenedorPadre{
+    background: rgba(251, 152, 21, 0.79);
+    box-shadow: 0 6px 5px rgba(0, 0, 0, 0.256);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid #da7f08;
+    padding: 5px;
+    
+}
+.button{
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 13px;
+    font-weight: 600;
+    box-shadow: 0 2px 30px rgba(62, 62, 62, 0.316);
+    cursor: pointer;
+}
+
+.nav{
+    /* display: flex;
+    flex-direction: row;
+    justify-content: center;
+     */
+    display: flex;
+    justify-content: space-evenly;
+    width: auto;
+    height: 32px;
+    line-height: 32px;
+    margin-bottom: 5px;
+
+}
+.nav h2{
+    font-size: 26px;
+    text-shadow: 2px 2px 2px #ffffff;
+}
+
+.contenedorDfiltros{
+    display: flex;
+    justify-content: space-around;
+    width: auto;
+}
+
+.busqueda{
+    padding: 5px;
+}
+.input{
+    padding: 0 15px;
+    border-radius: 13px;
+    border:none;
+    height: 23px;
+    text-align: center;
+    margin-right: 36px;
+    border: 2px solid black;
+    background:#fdfdfd url("https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png") no-repeat 9px center;
+}
+

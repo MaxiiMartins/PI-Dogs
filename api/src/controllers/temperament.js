@@ -1,5 +1,5 @@
 const {Temperament} = require("../db")
-const {getAllInfoApi} = require("./dogs")
+const { getAllInfoApi } = require("./dogs")
 
 
 // cargo todos los temperamentos a la db
@@ -33,10 +33,13 @@ const addTemperamentDb = async()=>{
 const getAllTemperamentDb = async () =>{
 
     await addTemperamentDb()
-
+    
     const data = await Temperament.findAll()
 
     return data
 }
 
-module.exports = getAllTemperamentDb
+module.exports = {
+    addTemperamentDb,
+    getAllTemperamentDb
+}

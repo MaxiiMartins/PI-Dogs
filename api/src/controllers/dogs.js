@@ -3,18 +3,18 @@ const {Dog,Temperament} = require("../db")
 
 const getAllInfoApi = async () => {
 
-    const dataApi = (await axios(`https://api.thedogapi.com/v1/breeds`)).data
+    const dataApi = (await axios(`https://api.thedogapi.com/v1/breeds?api_key=da770a06-df36-4f30-906d-cd89acebb69d`)).data
 
     .map((e) => {
 
         let altura= e.height.metric.split("-")
 
         let peso= e.weight.metric.split("-")
-        
-        let [minA,maxA] = altura
-        
-        let [minP,maxP] = peso
-      
+        // [76]
+        altura.length === 2? [minA,maxA] = altura:[maxA,minA] =altura
+        peso.length === 2? [minP,maxP] = peso:[maxP,minP] =peso
+
+      // NaN - 32
       return {
         
         id: e.id,
@@ -23,11 +23,11 @@ const getAllInfoApi = async () => {
         
         alturaMax:parseInt(maxA)? parseInt(maxA):35,
         
-        alturaMin:parseInt(minA)?parseInt(minA): 30 ,
+        alturaMin:parseInt(minA)?parseInt(minA): Math.ceil(maxA/2) ,
         
         pesoMax:parseInt(maxP)?parseInt(maxP):32,
         
-        pesoMin:parseInt(minP)?parseInt(minP):28,
+        pesoMin:parseInt(minP)?parseInt(minP):Math.ceil(maxP/2),
         
         // alturaMax: altura.length >1 ? parseInt(altura[1]):parseInt(altura[0]),
         // alturaMin: altura.length >1 ? parseInt(altura[0]):parseInt(altura[0])/2,
@@ -49,7 +49,7 @@ const getAllInfoApi = async () => {
 
 const getAllInfoDb = async() => {
 
-  const dataDb = await Dog.findAll({
+  let dataDb = await Dog.findAll({
 
     include:{  
       
@@ -66,7 +66,7 @@ const getAllInfoDb = async() => {
     }
 
   })
-  console.log(dataDb)
+  // console.log("Esto es la database!!!! => ",dataDb)
   
   dataDb = dataDb.map(e=>{
 
@@ -76,17 +76,17 @@ const getAllInfoDb = async() => {
 
       nombre: e.nombre,
 
-      alturaMax: altura_max,
+      alturaMax: e.altura_max,
 
-      alturaMin: altura_min,
+      alturaMin: e.altura_min,
 
-      pesoMax: peso_max,
+      pesoMax: e.peso_max,
       
-      pesoMin: peso_min,
+      pesoMin: e.peso_min,
 
-      añosDeVida: año_de_vida,
+      añosDeVida: e.año_de_vida,
 
-      img:imagen,
+      img:e.imagen,
 
       temperamento: e.temperaments.map(e=> e.name).join(", ")
 
@@ -102,12 +102,32 @@ const getAllInfo = async()=>{
   const dataApi = await getAllInfoApi();
 
   const dataDb = await getAllInfoDb();
-  
   return dataApi.concat(dataDb)
 }
+
+const randomImg = ()=>{
+
+  const arrUrl = [
+        
+    "https://img.freepik.com/vector-gratis/lindo-perro-sentado-dibujos-animados-vector-icono-ilustracion-animal-naturaleza-icono-concepto-vector-aislado_138676-4928.jpg",
+  
+    "https://img.freepik.com/vector-gratis/lindo-perro-caminando-gafas-cartoon-vector-icono-ilustracion-animal-naturaleza-icono-concepto-aislado_138676-4924.jpg",
+
+    "https://img.freepik.com/vector-gratis/lindo-perro-sacando-lengua-ilustracion-icono-dibujos-animados_138676-2709.jpg",
+
+    "https://img.freepik.com/vector-gratis/lindo-perro-labrador-caja-cartoon-vector-icono-ilustracion-animal-naturaleza-icono-concepto-aislado_138676-4327.jpg",
+
+    "https://img.freepik.com/vector-gratis/lindo-labrador-perro-sonrisa-dibujos-animados-vector-icono-ilustracion-animal-naturaleza-icono-concepto-aislado_138676-4329.jpg",
+    
+  ]
+  
+  return arrUrl[Math.floor(Math.random()*arrUrl.length)]
+}
+
 
 module.exports = {
   getAllInfo,
   getAllInfoApi,
-  getAllInfoDb
+  getAllInfoDb,
+  randomImg
 };

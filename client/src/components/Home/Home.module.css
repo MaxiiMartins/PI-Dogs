@@ -1,0 +1,32 @@
+
+/* backdrop-filter: blur(5px); */
+
+.fondo{
+    /* background: #fb9815; */
+
+    text-align: center;
+
+}
+.cardContainer {
+    display: grid;
+    grid-template-columns: repeat(4,170px);
+    gap:15px;
+    padding: 20px;
+    justify-content: center;
+    height: 70vh;
+}
+.cardContainer .cargando{
+    position: absolute;
+    top: 40.9%;
+    left: 40.9%;
+}
+.card img{
+    border-radius: 10px;
+    height: 90px;
+    width:150px;
+}
+
+.cargando{
+    display: flex;
+    justify-items: center;
+}

@@ -41,10 +41,5 @@ module.exports = (sequelize) => {
     updatedAt:"actualizacion"
   });
 };
- 
-// {
-//   timestamps: true,
-//   createdAt: false,
-//   updatedAt: 'actualizado'
-//  });
+
  

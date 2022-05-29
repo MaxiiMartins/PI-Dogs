@@ -1,0 +1,41 @@
+.card{
+    font-size: 10px;
+    text-align: center;
+    border-radius: 15px; 
+    /* background: rgba(251, 151, 21, 0.787); */
+    background: rgba(251, 152, 21, 0.79);
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.296);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(251, 152, 21, 1);
+    /* background-color: rgba(255, 255, 255, 0.47);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);  */
+    padding: 10px;
+    height: 210px;
+
+}
+.card p{
+    font-weight: 700;
+    padding: 3px 0;
+}
+.card h3{
+    color: #51050F;
+    padding: 2px 0;
+    font-weight: 700;
+    color: #51050F;
+    text-shadow: 0 0 1px #51050F;
+}
+.card .title {
+    font-weight: 700;
+    color: #E02401;
+    text-shadow: 0 0 1px #E02401;
+}
+img{
+    /* display: none; */
+    border-radius: 10px;
+    width: 140px;
+    height: 90px;
+
+}

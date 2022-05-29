@@ -17,13 +17,13 @@ router.get("/", async (req,res,next)=>{
             
             const found = dogs.filter(e=> e.nombre.toLowerCase().includes(name.toLowerCase()))
             
-            found.length > 1
+            found.length > 0
             
             ? res.send(found)
             
             : res.status(404).send({error:"No se encontro ninguna raza con ese nombre"})
         }
-        
+        //randomImg()
     } catch (error) {
         
         next(error)
