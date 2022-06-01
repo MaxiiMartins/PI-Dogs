@@ -7,7 +7,7 @@ router.get("/",async(req,res,next)=>{
     try {
 
         const data = await getAllTemperamentDb()
-        console.log(data)
+        
         res.send(data)
 
     } catch (error) {

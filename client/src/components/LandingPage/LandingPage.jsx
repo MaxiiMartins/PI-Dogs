@@ -12,8 +12,8 @@ function LandingPage(){
         <h2>DOGS <span className={style.icono}>🦴</span></h2>
       </div>
       <div className={style.container}>
-        <Link to="/dogs">
-          <buttom className={style.botton}>Ingresar</buttom>
+        <Link to="/home">
+          <buttom className={style.btn}>Ingresar</buttom>
         </Link>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 // import { connect } from "react-redux";
-import { getAllDogs } from "../../redux/actions";
+import { getAllDogs, getAllTemperaments } from "../../redux/actions";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import style from "./Home.module.css";
@@ -12,20 +12,22 @@ import Paginado from "../Paginado/Paginado";
 export const Home = () => {
   const dispatch = useDispatch();
   const allDogs = useSelector((state) => state.dogs);
+  const allTemperaments = useSelector((state) => state.temperaments);
   const [pagina, setPagina] = useState(1);
   const [porPagina, setPorPagina] = useState(8);
   let contador = 0;
   useEffect(() => {
     dispatch(getAllDogs());
+    dispatch(getAllTemperaments());
   }, [dispatch]);
   
   return (
     
     <div className={style.fondo}>
-      <Navbar setearPagina={setPagina}/>
+      <Navbar setearPagina={setPagina} temperamentos={allTemperaments} />
       
       <div className={style.cardContainer}>
-        {allDogs.data ? (
+        {allDogs.data && allTemperaments? (
           contador = allDogs.data.length,
           allDogs.data.slice(
             (pagina - 1) * porPagina,
