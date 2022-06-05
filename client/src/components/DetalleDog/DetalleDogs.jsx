@@ -19,7 +19,7 @@ function DetalleDogs() {
       <Link to="/home" onClick={() => dispatch(clearDetail())}>volver</Link>
       {
         Object.keys(dog).length
-        ? <div key={id}>
+        ? <div key={id} className={style.container}>
             <img src={dog.img} alt={dog.nombre} />
             <h2>{dog.nombre}</h2>
             <p>temperamentos : {dog.temperamento}</p>

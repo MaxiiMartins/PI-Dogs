@@ -7,12 +7,12 @@ import {
   orderWeight,
   filterTemperaments,
   filterDataDogs,
+  clearDogs,
 } from "../../redux/actions";
 import style from "./Navbar.module.css";
 function Navbar({ setearPagina, temperamentos }) {
   const dispatch = useDispatch();
   const [valorInput, setValorInput] = useState("");
-  const [ordenado, setOrdenado] = useState("");
 
   function handleChange(e) {
     setValorInput(e.target.value);
@@ -31,12 +31,10 @@ function Navbar({ setearPagina, temperamentos }) {
       e.target.value === "ZA" ||
       e.target.value === "TODOS"
     ) {
-      console.log("za o az", ordenado);
       dispatch(orderAlphabetical(e.target.value));
       setearPagina(1);
     }
     if (e.target.value === "MAX" || e.target.value === "MIN") {
-      console.log("max o min", ordenado);
       dispatch(orderWeight(e.target.value));
       setearPagina(1);
     }
@@ -54,7 +52,7 @@ function Navbar({ setearPagina, temperamentos }) {
   return (
     <div className={style.contenedorPadre}>
       <div className={style.nav}>
-        <h2>
+        <h2 className={style.logo}>
           DOGS <span>🦴</span>
         </h2>
         <div className={style.busqueda}>
@@ -68,7 +66,7 @@ function Navbar({ setearPagina, temperamentos }) {
             />
           </form>
         </div>
-        <Link to="/">
+        <Link to="/" onClick={() => dispatch(clearDogs())}>
           <button className={style.btn}>Ir al inicio</button>
         </Link>
         <Link to="/dog">
@@ -91,7 +89,7 @@ function Navbar({ setearPagina, temperamentos }) {
           </label>
           <label htmlFor={"temperamento"}> Filtrar por  
           <select id="temperamento" defaultValue="TODOS" onChange={(e) => handleFilter(e)}>
-            <option value="TODOS">Temperamento</option>
+            <option value="TODOS">Temperamentos</option>
             {temperamentos?.map((e) => {
               return (
                 <option key={e.id} value={e.name}>{e.name}</option>

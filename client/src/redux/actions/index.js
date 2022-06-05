@@ -5,6 +5,7 @@ export const CREATE_DOG = "CREATE_DOG";
 export const GET_ALL_TEMPERAMENTS = "GET_ALL_TEMPERAMENTS";
 export const DOG_DETAIL = "DOG_DETAIL";
 export const CLEAR_DETAIL = "CLEAR_DETAIL";
+export const CLEAR_DOGS = "CLEAR_DOGS";
 export const SEARCH_DOG_NAME = "SEARCH_DOG_NAME";
 export const ORDER_ALPHABETICAL = "ORDER_ALPHABETICAL";
 export const ORDER_WEIGHT = "ORDER_WEIGHT";
@@ -91,9 +92,17 @@ export const dogDetail = (id) =>{
     }
 }
 export const clearDetail = ()=>{
+    
     return function (dispatch){
 
         return dispatch({type:CLEAR_DETAIL})
+    }
+}
+export const clearDogs = ()=>{
+
+    return function (dispatch){
+
+        return dispatch({type:CLEAR_DOGS})
     }
 }
 

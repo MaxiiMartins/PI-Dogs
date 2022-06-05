@@ -9,6 +9,7 @@ import {
   FILTER_DATA_DOGS,
   DOG_DETAIL,
   CLEAR_DETAIL,
+  CLEAR_DOGS,
 } from "../actions";
 
 const initialState = {
@@ -107,17 +108,25 @@ const rootReducer = (state = initialState, action) => {
     case DOG_DETAIL:
       return {
         ...state,
-        dogDetail: action.payload.data
+        dogDetail: action.payload.data,
       };
     case CLEAR_DETAIL:
-      console.log("ClearDetail",action)
-    return {
-      ...state,
-      dogDetail: {}
-    };
+      console.log("ClearDetail", action);
+      return {
+        ...state,
+        dogDetail: {},
+      };
+    case CLEAR_DOGS:
+      console.log("ClearDetail", action);
+      return {
+        ...state,
+        dogs: {},
+      };
     case CREATE_DOG:
       return {
         ...state,
+        dogs: [],
+        dogsAux: [],
       };
     default:
       return state;

@@ -13,6 +13,11 @@
     /* offset-x | offset-y | blur-radius | color*/
     /* animation: texto-animado 1s infinite; */
     text-shadow: 3px 3px 5px #ffffff;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .titulo span{
@@ -37,14 +42,14 @@
     width: 220px;
     font-size: 40px;
     /* font-weight: 400; */
-    background: transparent;
+    background: #fb9815;
     border: 3px solid white;
     border-radius: 20px;
     position: absolute;
     top: 49.8%;
     left: 55%;
     animation: animation 2s infinite;
-    box-shadow: 0 2px 30px rgba(62, 62, 62, 0.316);
+    box-shadow: 0 2px 18px rgba(62, 62, 62, 0.751);
 }
 
 

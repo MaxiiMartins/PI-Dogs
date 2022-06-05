@@ -14,7 +14,7 @@ export const Home = () => {
   const allDogs = useSelector((state) => state.dogs);
   const allTemperaments = useSelector((state) => state.temperaments);
   const [pagina, setPagina] = useState(1);
-  const [porPagina, setPorPagina] = useState(8);
+  const porPagina = 8; // cantidad de elemento a mostrar por pagina
   let contador = 0;
   useEffect(() => {
     dispatch(getAllDogs());
@@ -33,7 +33,6 @@ export const Home = () => {
             (pagina - 1) * porPagina,
             (pagina - 1) * porPagina + porPagina
           ).map((e) =>{ 
-            
             return (<DogCards
               key={e.id}
               id={e.id}

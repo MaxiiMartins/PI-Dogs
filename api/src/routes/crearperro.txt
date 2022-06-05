@@ -1,0 +1,12 @@
+{
+    "nombre":"Zeus",
+    "alturaMax":45,
+    "alturaMin":35,
+    "pesoMax":40,
+    "pesoMin":30,
+    "añosDeVida":"12 years",
+    "img":"https://raw.githubusercontent.com/MaxiiMartins/contador/master/IMG_20200127_200536.webp",
+    "temperamento":"Familial"
+}
+
+archivo json para hacer pedido post

@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import style from "./DogCards.module.css";
-import { dogDetail } from "../../redux/actions"
 
 function DogCards({ id, nombre, img, temperamento, pesoMax }) {
 
