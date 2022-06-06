@@ -66,12 +66,14 @@ function Navbar({ setearPagina, temperamentos }) {
             />
           </form>
         </div>
+        <div className={style.botones}>
         <Link to="/" onClick={() => dispatch(clearDogs())}>
           <button className={style.btn}>Ir al inicio</button>
         </Link>
         <Link to="/dog">
           <button className={style.btn}>Añadir raza</button>
         </Link>
+        </div>
       </div>
       <div className={style.contenedorDfiltros}>
           <label htmlFor="ordenar">Ordenar por  

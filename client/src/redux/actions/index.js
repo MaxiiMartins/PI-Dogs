@@ -106,15 +106,16 @@ export const clearDogs = ()=>{
     }
 }
 
-export const createDog = (payload) =>{
+export const createDog = (info) =>{
 
     return async function (dispatch){
 
-        const response = axios.post("http://localhost:3001/dog",payload)
-
-        console.log(response)
-
-        return response;
+        const response = axios.post("http://localhost:3001/dog",info)
+        response.then(res => {
+            alert(res.data)
+        })
+        .catch(err => alert(err))
+        return dispatch({type:CREATE_DOG});
     }
 }
 

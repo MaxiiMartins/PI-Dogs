@@ -16,13 +16,13 @@ const hayError = (error,setError)=>{
 const validacion = (estado, error,setError) => {
   // validaciones nombre
   if (estado.nombre) {
-    if (!/^[a-zA-Z]+(([a-zA-Z ])?[a-zA-Z]*)*$/.test(estado.nombre))
-      error.nombre =
-        "El nombre no puede contener números ni caracteres especiales";
     if (estado.nombre.length > 24)
-      error.nombre = "El nombre supera los 24 caracteres";
+    error.nombre = "El nombre supera los 24 caracteres";
     if (estado.nombre.length < 3)
-      error.nombre = "El nombre tiene que contener al menos 3 caracteres";
+    error.nombre = "El nombre tiene que contener al menos 3 caracteres";
+    // let regular = !/^[a-zA-Z]+(([a-zA-Z ])?[a-zA-Z]*)*$/.test(estado.nombre)
+    if (!/^[a-zA-Z]+(([a-zA-Z ])?[a-zA-Z]*)*$/.test(estado.nombre))
+      error.nombre = "El nombre no puede contener números ni caracteres especiales";
     else {
       error.nombre = "";
     }

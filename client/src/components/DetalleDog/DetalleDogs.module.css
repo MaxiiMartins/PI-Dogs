@@ -1,18 +1,72 @@
 .container{
+    margin: 20px 250px;
     padding: 10px;
-    width: 300px;
-    background: rgba(251, 151, 21, 0.572);
+    width: 530px;
+    background: rgb(251, 151, 21);
     border-radius: 16px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.296);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(251, 151, 21, 0.862);
 }
 
-img{
+    .btn {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        padding: 5px 6px;
+        font-size: 18px;
+        text-align: center;
+        text-decoration: none;
+        background: #fb9815;
+        border: 2px solid white;
+        border-radius: 13px;
+        font-weight: 600;
+        box-shadow: 0 2px 15px rgba(62, 62, 62, 0.316);
+        cursor: pointer;
+    
+}
+.portada{
+    text-align: center;
+    padding: 5px 0;
+}
+.portada img{
     /* display: none; */
-    border-radius: 10px;
-    width: 140px;
-    height: 90px;
+    margin: 5px;
+    border-radius: 100%;
+    border: 3px solid white;
+    width: 230px;
+    height: 200px;
+}
+.portada h2{
+    padding: 2px 0;
+    font-weight: 700;
+    color: #750615;
+    text-shadow: 0 0 1px #750615;
+}
+.informacion {
+    text-overflow: ellipsis;
+}
+.informacion p{
+    font-weight: 700;
+    padding: 4px 5px;
+}
+.informacion .title {
+    font-weight: 700;
+    color: #E02401;
+    text-shadow: 0 0 1px #E02401;
+}
+.container .enlace {
+    padding: 2px;
+    border-radius: 30%;
+    font-weight: 700;
+    font-size: 10px;
+    color: #000000;
+    text-shadow: 0 0 1px #000000;
+}
 
+.cargando{
+    width: auto;
+    height: 180px;
+    position: absolute;
+    top: 34%;
+    left: 40%;
 }

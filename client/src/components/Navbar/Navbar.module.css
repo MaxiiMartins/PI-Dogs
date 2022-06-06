@@ -7,7 +7,15 @@
     padding: 5px;
     
 }
+
+.logo{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
+}
 .btn{
+    margin-right: 7px;
     padding: 5px;
     text-align: center;
     text-decoration: none;
@@ -17,6 +25,10 @@
     font-weight: 600;
     box-shadow: 0 2px 30px rgba(62, 62, 62, 0.316);
     cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
 }
 
 .nav{

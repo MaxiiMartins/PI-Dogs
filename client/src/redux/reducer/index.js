@@ -123,11 +123,7 @@ const rootReducer = (state = initialState, action) => {
         dogs: {},
       };
     case CREATE_DOG:
-      return {
-        ...state,
-        dogs: [],
-        dogsAux: [],
-      };
+      return state;
     default:
       return state;
   }

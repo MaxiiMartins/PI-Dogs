@@ -84,7 +84,7 @@ const getAllInfoDb = async() => {
       
       pesoMin: e.peso_min,
 
-      añosDeVida: e.año_de_vida,
+      añosDeVida: e.años_de_vida,
 
       img:e.imagen,
 

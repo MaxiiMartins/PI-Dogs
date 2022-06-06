@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("./components/LandingPage/fondolandingpage-min.jpg");
+  background-image: url("./img/fondolandingpage-min.jpg");
   background-size: cover;
   height: 100vh;
   background-attachment: fixed;

@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import style from "./Home.module.css";
 import DogCards from "../DogCards/DogCards";
 import Navbar from "../Navbar/Navbar";
-import cargando from "./spinner.gif";
+import cargando from "../../img/spinner.gif";
 import Paginado from "../Paginado/Paginado";
 
 export const Home = () => {

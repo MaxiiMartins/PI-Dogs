@@ -1,38 +1,59 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { Link, useParams } from 'react-router-dom'
-import { dogDetail, clearDetail } from '../../redux/actions';
-import cargando from "../img/spinner.gif";
-import style from "./DetalleDogs.module.css"
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useParams } from "react-router-dom";
+import { dogDetail, clearDetail } from "../../redux/actions";
+import cargando from "../../img/spinner.gif";
+import style from "./DetalleDogs.module.css";
 
 function DetalleDogs() {
-  const {id} = useParams()
-  const dispatch = useDispatch()
-  const dog = useSelector(state => state.dogDetail)
-
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  const dog = useSelector((state) => state.dogDetail);
   useEffect(() => {
-    dispatch(dogDetail(id))
-  }, [dispatch,id])
-  
+    dispatch(dogDetail(id));
+  }, [dispatch, id]);
+
   return (
     <div>
-      <Link to="/home" onClick={() => dispatch(clearDetail())}>volver</Link>
-      {
-        Object.keys(dog).length
-        ? <div key={id} className={style.container}>
+      <Link to="/home">
+      <button className={style.btn}  onClick={() => dispatch(clearDetail())}>Volver</button>
+      </Link>
+      {Object.keys(dog).length ? (
+        <div key={id} className={style.container}>
+          <div className={style.portada}>
             <img src={dog.img} alt={dog.nombre} />
             <h2>{dog.nombre}</h2>
-            <p>temperamentos : {dog.temperamento}</p>
-            <p>Años de vida : {dog.añosDeVida}</p>
-            <p>pesoMax : {dog.pesoMax}</p>
-            <p>pesoMin : {dog.pesoMin}</p>
-            <p>alturaMax : {dog.alturaMax}</p>
-            <p>alturaMin : {dog.alturaMin}</p>
           </div>
-        : <img className={style.cargando} src={cargando} alt="" />
-      }
+          <div className={style.informacion}>
+            <p>
+              <span className={style.title}>Temperamentos:</span>{" "}
+              {dog.temperamento}
+            </p>
+            <p>
+              <span className={style.title}>Años de vida:</span>{" "}
+              {dog.añosDeVida}
+            </p>
+            <p>
+              <span className={style.title}>Peso maximo:</span> {dog.pesoMax}Kg
+            </p>
+            <p>
+              <span className={style.title}>Peso minimo:</span> {dog.pesoMin}Kg
+            </p>
+            <p>
+              <span className={style.title}>Altura maxima:</span>{" "}
+              {dog.alturaMax}Kg
+            </p>
+            <p>
+              <span className={style.title}>Altura minima:</span>{" "}
+              {dog.alturaMin}Kg
+            </p>
+          </div>
+        </div>
+      ) : (
+        <img className={style.cargando} src={cargando} alt="" />
+      )}
     </div>
-  )
+  );
 }
 
 // alturaMax: 29
@@ -44,4 +65,4 @@ function DetalleDogs() {
 // pesoMax: 6
 // pesoMin: 3
 // temperamento: "Stubbo
-export default DetalleDogs
+export default DetalleDogs;

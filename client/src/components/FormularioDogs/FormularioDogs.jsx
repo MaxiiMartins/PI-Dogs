@@ -27,6 +27,28 @@ function FormularioDog() {
     alerta:true
   });
 
+  const handleSubmit = (e)=>{
+    e.preventDefault();
+          dispatch(createDog({
+            ...info,
+            pesoMax: parseInt(info.pesoMax),
+            pesoMin: parseInt(info.pesoMin),
+            alturaMax: parseInt(info.alturaMax),
+            alturaMin: parseInt(info.alturaMin),
+            añosDeVida: info.añosDeVida +" years" ,
+            temperamento: info.temperamento.join(", ")
+          }))
+          setInfo({
+            nombre: "",
+            pesoMax: "",
+            pesoMin: "",
+            alturaMax: "",
+            alturaMin: "",
+            añosDeVida: "",
+            img: "",
+            temperamento: []
+          })
+  }
   const handleChange = (e)=> {
     
     setInfo((prev) => ({
@@ -64,11 +86,7 @@ function FormularioDog() {
       </div>
       <form
         className={style.formContainer}
-        onSubmit={(e) => {
-          console.log("e", e);
-          e.preventDefault();
-          dispatch(createDog(info))
-        }}
+        onSubmit={(e)=>handleSubmit(e)}
         autoComplete="off"
       >
         <h2>Añade una nueva raza </h2>
@@ -154,8 +172,8 @@ function FormularioDog() {
             disabled={info.temperamento.length === 4}
           >
             <option value="">--</option>
-            {temperamentos?.map((e) => {
-              return <option value={e.name}>{e.name}</option>;
+            {temperamentos?.map((e,index) => {
+              return <option key={index} value={e.name}>{e.name}</option>;
             })}
           </select>
         </div>
@@ -173,7 +191,7 @@ function FormularioDog() {
         <input
             type="submit"
             className={style.btnEnviar}
-            disabled={info.cambio}
+            disabled={error.alerta}
           /> 
       </form>
       <div className={error.alerta?style.containerError : style.desactivado}>

@@ -8,7 +8,7 @@ router.post("/",async (req,res,next)=>{
     try {
 
         const { nombre, alturaMax , alturaMin , pesoMax , pesoMin , añosDeVida , img , temperamento } = req.body
-
+        console.log(req.body)
         const newDog = await Dog.create({
 
             nombre:nombre,
@@ -27,7 +27,7 @@ router.post("/",async (req,res,next)=>{
 
         });
         // falta evaluar en el caso de que me ingresen mas de un temperamento
-        const temperamentNewDog = await Temperament.findAll({where: {name :temperamento}})
+        const temperamentNewDog = await Temperament.findAll({where: {name :temperamento.split(", ")}})
 
         newDog.addTemperament(temperamentNewDog)
 
