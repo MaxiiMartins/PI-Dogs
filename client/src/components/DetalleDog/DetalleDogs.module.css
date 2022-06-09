@@ -1,6 +1,6 @@
 .container{
-    margin: 20px 250px;
-    padding: 10px;
+    margin: 40px 250px;
+    padding: 20px 5px;
     width: 530px;
     background: rgb(251, 151, 21);
     border-radius: 16px;
@@ -22,7 +22,10 @@
         font-weight: 600;
         box-shadow: 0 2px 15px rgba(62, 62, 62, 0.316);
         cursor: pointer;
-    
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none; 
 }
 .portada{
     text-align: center;
@@ -30,11 +33,12 @@
 }
 .portada img{
     /* display: none; */
+    pointer-events: none;
     margin: 5px;
     border-radius: 100%;
-    border: 3px solid white;
+    border: 6px solid rgba(255, 255, 255, 0.453);
     width: 230px;
-    height: 200px;
+    height: 170px;
 }
 .portada h2{
     padding: 2px 0;
@@ -43,11 +47,11 @@
     text-shadow: 0 0 1px #750615;
 }
 .informacion {
-    text-overflow: ellipsis;
+    margin: 4px 17px;
 }
 .informacion p{
     font-weight: 700;
-    padding: 4px 5px;
+    padding: 8px 5px;
 }
 .informacion .title {
     font-weight: 700;
@@ -69,4 +73,32 @@
     position: absolute;
     top: 34%;
     left: 40%;
+}
+
+.divBotones{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.divBotones button{
+    padding: 5px 6px;
+        font-size: 18px;
+        text-align: center;
+        text-decoration: none;
+        background: #fb9815;
+        border: 2px solid white;
+        border-radius: 13px;
+        font-weight: 600;
+        box-shadow: 0 2px 15px rgba(62, 62, 62, 0.316);
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none; 
+}
+.divBotones .editar{
+    background: #2bbd17;
+}
+.divBotones .eliminar{
+    background: #b81d12;
 }

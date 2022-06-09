@@ -9,12 +9,13 @@ export const CLEAR_DOGS = "CLEAR_DOGS";
 export const SEARCH_DOG_NAME = "SEARCH_DOG_NAME";
 export const ORDER_ALPHABETICAL = "ORDER_ALPHABETICAL";
 export const ORDER_WEIGHT = "ORDER_WEIGHT";
+export const ORDER_LIFE = "ORDER_LIFE";
 export const FILTER_TEMPERAMENTS = "FILTER_TEMPERAMENTS";
 export const FILTER_DATA_DOGS = "FILTER_DATA_DOGS";
 
 export const getAllDogs = ()=>{
 
-    return async function(dispatch){
+    return function(dispatch){
 
         return(
 
@@ -27,6 +28,8 @@ export const getAllDogs = ()=>{
         
     }
 }
+// axios => data 
+// fetch => data => data.json => 
 
 export const searchDogName = (name)=>{
 
@@ -39,7 +42,7 @@ export const searchDogName = (name)=>{
 
         } catch (error) {
             
-            console.log(error)
+            //console.log(error)
 
             alert("No se encontro resultado")
         }
@@ -53,7 +56,7 @@ export const getAllTemperaments = ()=>{
         try {
             
             const info = (await axios("http://localhost:3001/temperament")).data
-            console.log(info)
+            //console.log(info)
             const data = info.map(e=>{
             
                 return{
@@ -126,6 +129,7 @@ export const orderAlphabetical = (value)=>{
         return dispatch({type:ORDER_ALPHABETICAL,payload:value})
     }
 }
+
 export const orderWeight = (value)=>{
     
     return function (dispatch){
@@ -133,6 +137,7 @@ export const orderWeight = (value)=>{
         return dispatch({type:ORDER_WEIGHT,payload:value})
     }
 }
+
 export const filterTemperaments = (value)=>{
     
     return function (dispatch){
@@ -147,4 +152,5 @@ export const filterDataDogs = (value)=>{
         return dispatch({type:FILTER_DATA_DOGS,payload:value})
     }
 }
+
 

@@ -7,7 +7,7 @@ import {
   orderWeight,
   filterTemperaments,
   filterDataDogs,
-  clearDogs,
+  clearDogs
 } from "../../redux/actions";
 import style from "./Navbar.module.css";
 function Navbar({ setearPagina, temperamentos }) {
@@ -38,6 +38,7 @@ function Navbar({ setearPagina, temperamentos }) {
       dispatch(orderWeight(e.target.value));
       setearPagina(1);
     }
+    
   }
 
   function handleFilter(e) {
@@ -76,20 +77,20 @@ function Navbar({ setearPagina, temperamentos }) {
         </div>
       </div>
       <div className={style.contenedorDfiltros}>
-          <label htmlFor="ordenar">Ordenar por  
+          <label htmlFor="ordenar">Ordenar por {" "}
           <select
             id="ordenar"
             defaultValue="TODOS"
             onChange={(e) => handleOrder(e)}
           >
-            <option value="TODOS">--</option>
+            <option value="TODOS">Peso - Alfabetico</option>
             <option value="AZ">A-Z</option>
             <option value="ZA">Z-A</option>
             <option value="MAX">Peso Maximo</option>
             <option value="MIN">Peso Minimo</option>
           </select>
           </label>
-          <label htmlFor={"temperamento"}> Filtrar por  
+          <label htmlFor={"temperamento"}> Filtrar por {" "}
           <select id="temperamento" defaultValue="TODOS" onChange={(e) => handleFilter(e)}>
             <option value="TODOS">Temperamentos</option>
             {temperamentos?.map((e) => {
@@ -99,13 +100,13 @@ function Navbar({ setearPagina, temperamentos }) {
             })}
           </select>
           </label>
-          <label htmlFor="filtrarData">Filtrar datos  
+          <label htmlFor="filtrarData">Filtrar datos {" "}
           <select
             id="filtrarData"
             defaultValue="TODOS"
             onChange={(e) => handleFilterData(e)}
           >
-            <option value="TODOS">Api - Db</option>
+            <option value="TODOS">Todos</option>
             <option value="API">Api</option>
             <option value="DB">Db</option>
           </select>

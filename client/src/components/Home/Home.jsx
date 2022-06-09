@@ -29,9 +29,9 @@ export const Home = () => {
       <div className={style.cardContainer}>
         {allDogs.data && allTemperaments? (
           contador = allDogs.data.length,
-          allDogs.data.slice(
-            (pagina - 1) * porPagina,
-            (pagina - 1) * porPagina + porPagina
+          allDogs.data.slice( // 100 / 8  (8,16-1)
+            (pagina - 1) * porPagina, // 2-1 = 1 * 8 (8,16-1)
+            (pagina - 1) * porPagina + porPagina // 8-1 = 7
           ).map((e) =>{ 
             return (<DogCards
               key={e.id}
@@ -44,9 +44,10 @@ export const Home = () => {
               añosDeVida={e.añosDeVida}
             />)
           })
-        ) : 
+        ):
         <img className={style.cargando} src={cargando} alt="" />
         }
+        
       </div>
       <Paginado pagina={pagina} setPagina={setPagina} maximo={Math.ceil(contador/porPagina)}/>
     </div>

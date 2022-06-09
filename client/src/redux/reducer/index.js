@@ -9,7 +9,7 @@ import {
   FILTER_DATA_DOGS,
   DOG_DETAIL,
   CLEAR_DETAIL,
-  CLEAR_DOGS,
+  CLEAR_DOGS
 } from "../actions";
 
 const initialState = {
@@ -30,7 +30,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         dogs: action.payload,
-        dogsAux: action.payload,
+        dogsAux: action.payload
       };
     case GET_ALL_TEMPERAMENTS:
       return {
@@ -62,13 +62,10 @@ const rootReducer = (state = initialState, action) => {
           dogs: state.dogsAux,
         };
       }
-      let result = state.dogs.data.filter((e) =>
+      let result = state.dogsAux.data.filter((e) =>
         e.temperamento.includes(action.payload)
       );
-      if (!result.length)
-        result = state.dogsAux.data.filter((e) =>
-          e.temperamento.includes(action.payload)
-        );
+      
       return {
         ...state,
         dogs: { ...state.dogs, data: result },
@@ -111,19 +108,19 @@ const rootReducer = (state = initialState, action) => {
         dogDetail: action.payload.data,
       };
     case CLEAR_DETAIL:
-      console.log("ClearDetail", action);
+      //console.log("ClearDetail", action);
       return {
         ...state,
         dogDetail: {},
       };
     case CLEAR_DOGS:
-      console.log("ClearDetail", action);
+      //console.log("ClearDogs", action);
       return {
         ...state,
         dogs: {},
       };
-    case CREATE_DOG:
-      return state;
+      case CREATE_DOG:
+        return state;
     default:
       return state;
   }

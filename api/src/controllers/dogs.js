@@ -1,12 +1,52 @@
 const axios = require("axios");
 const {Dog,Temperament} = require("../db")
+const {API_KEY} = process.env;
+
+// const getAllInfoApiPromise = ()=>{
+//    return axios("https://api.thedogapi.com/v1/breeds?api_key=da770a06-df36-4f30-906d-cd89acebb69d")
+//   .then(res => res.data)
+//   .then(result => result.map((e) => {
+
+//     let altura= e.height.metric.split("-")
+
+//     let peso= e.weight.metric.split("-")
+//     // [76]
+//     altura.length === 2? [minA,maxA] = altura:[maxA,minA] =altura
+//     peso.length === 2? [minP,maxP] = peso:[maxP,minP] =peso
+
+//   // NaN - 32
+//   return {
+    
+//     id: e.id,
+    
+//     nombre: e.name,
+    
+//     alturaMax:parseInt(maxA)? parseInt(maxA):35,
+    
+//     alturaMin:parseInt(minA)?parseInt(minA): Math.ceil(maxA/2) ,
+    
+//     pesoMax:parseInt(maxP)?parseInt(maxP):32,
+    
+//     pesoMin:parseInt(minP)?parseInt(minP):Math.ceil(maxP/2),
+
+//     temperamento: e.temperament || "Active, Athletic, Agile, Confident, Fearless, Protective",
+    
+//     añosDeVida: e.life_span,
+    
+//     img: e.image.url
+
+//   };
+// })).catch(error => console.log(error))
+  
+// }
 
 const getAllInfoApi = async () => {
 
-    const dataApi = (await axios(`https://api.thedogapi.com/v1/breeds?api_key=da770a06-df36-4f30-906d-cd89acebb69d`)).data
+    const dataApi = (await axios(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`)).data
 
     .map((e) => {
-
+      // 13 - 12
+      // 13
         let altura= e.height.metric.split("-")
 
         let peso= e.weight.metric.split("-")
@@ -36,7 +76,7 @@ const getAllInfoApi = async () => {
         
         temperamento: e.temperament || "Active, Athletic, Agile, Confident, Fearless, Protective",
         
-        añosDeVida: e.life_span,
+        añosDeVida: e.life_span, // 12 years 
         
         img: e.image.url
 
@@ -55,18 +95,18 @@ const getAllInfoDb = async() => {
       
       model: Temperament,
       
-      attributes:["name"],
+      attributes:["name"]
+      ,
       
       throught:{
           
         attributes:[]
       
       }
-
     }
 
   })
-  // console.log("Esto es la database!!!! => ",dataDb)
+  //console.log("Esto es la database!!!! => ",dataDb)
   
   dataDb = dataDb.map(e=>{
 
@@ -100,7 +140,8 @@ const getAllInfoDb = async() => {
 const getAllInfo = async()=>{
 
   const dataApi = await getAllInfoApi();
-
+  // const dataApi = getAllInfoApiPromise();
+  // console.log("data api ",dataApi )
   const dataDb = await getAllInfoDb();
   return dataApi.concat(dataDb)
 }

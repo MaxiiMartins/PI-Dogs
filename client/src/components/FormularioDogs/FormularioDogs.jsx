@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { createDog } from "../../redux/actions";
+import { createDog, getAllTemperaments } from "../../redux/actions";
 import style from "./FormularioDogs.module.css";
 import validacion from "./validaciones"
+import cargando from "../../img/spinner.gif";
 
 function FormularioDog() {
   const dispatch = useDispatch();
   const temperamentos = useSelector((state) => state.temperaments);
+  // estado de la info del nuevo perro
   const [info, setInfo] = useState({
     nombre: "",
     pesoMax: "",
@@ -18,6 +20,7 @@ function FormularioDog() {
     img: "",
     temperamento: []
   });
+  // estado de los errores en el formulario
   const [error, setError] = useState({
     nombre: "Se requiere un nombre",
     altura: "Se requiere un altura",
@@ -27,6 +30,10 @@ function FormularioDog() {
     alerta:true
   });
 
+  useEffect(()=>{
+    dispatch(getAllTemperaments())
+  },[dispatch])
+  
   const handleSubmit = (e)=>{
     e.preventDefault();
           dispatch(createDog({
@@ -49,6 +56,7 @@ function FormularioDog() {
             temperamento: []
           })
   }
+
   const handleChange = (e)=> {
     
     setInfo((prev) => ({
@@ -68,6 +76,7 @@ function FormularioDog() {
       validacion(info,error,setError)
     }
   };
+  
   const deleteSelectTemperament = (e) => {
     e.preventDefault();
     const array = info.temperamento;
@@ -84,7 +93,9 @@ function FormularioDog() {
           <button className={style.btn}>Volver</button>
         </Link>
       </div>
-      <form
+      {temperamentos.length?(
+        <>
+        <form
         className={style.formContainer}
         onSubmit={(e)=>handleSubmit(e)}
         autoComplete="off"
@@ -97,6 +108,7 @@ function FormularioDog() {
             type="text"
             onChange={(e) => handleChange(e)}
             value={info.nombre}
+            maxLength={19}
           />
         </div>
         <div className={style.formInputs}>
@@ -104,6 +116,7 @@ function FormularioDog() {
           <input
             id="img"
             type="text"
+            placeholder=" url de la imagen"
             onChange={(e) => handleChange(e)}
             value={info.img}
           />
@@ -201,6 +214,8 @@ function FormularioDog() {
         {error.añosDeVida !== "" ?<p>* {error.añosDeVida}</p>:null}
         {error.temperamento !== "" ?<p>* {error.temperamento}</p>:null}
       </div>
+        </>
+      ):<img className={style.cargando} src={cargando} alt="" />}
     </div>
   );
 }

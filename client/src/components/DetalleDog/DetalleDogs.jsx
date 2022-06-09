@@ -41,11 +41,11 @@ function DetalleDogs() {
             </p>
             <p>
               <span className={style.title}>Altura maxima:</span>{" "}
-              {dog.alturaMax}Kg
+              {dog.alturaMax}cm
             </p>
             <p>
               <span className={style.title}>Altura minima:</span>{" "}
-              {dog.alturaMin}Kg
+              {dog.alturaMin}cm
             </p>
           </div>
         </div>
@@ -66,3 +66,8 @@ function DetalleDogs() {
 // pesoMin: 3
 // temperamento: "Stubbo
 export default DetalleDogs;
+
+
+// <div className={style.divBotones}>{id.length < 4 && (<>
+//             <button id="Editar" className={style.editar} onClick={(e)=> alert(`${e.target.id} la raza ${dog.nombre}`)}> Editar </button ><button id="Eliminar" className={style.eliminar} onClick={(e)=> alert(`${e.target.id} la raza ${dog.nombre}`)}> Eliminar </button>
+//           </>)}</div>

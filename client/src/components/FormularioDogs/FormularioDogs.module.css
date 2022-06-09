@@ -45,8 +45,11 @@ input:focus {
   border-bottom: 2px solid #a81900;
 }
 
+
 .btn {
-  margin: 9px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
   padding: 5px 6px;
   font-size: 18px;
   text-align: center;
@@ -57,6 +60,10 @@ input:focus {
   font-weight: 600;
   box-shadow: 0 2px 15px rgba(62, 62, 62, 0.316);
   cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; 
 }
 
 .nav {
@@ -78,10 +85,14 @@ input:focus {
   /* background: rgb(224, 188, 144); */
   background: #fb9815;
   border-radius: 16px;
-  box-shadow: 0 1px 15px #9a0b1e;
+  box-shadow: 0 1px 8px #ff0c0cb0;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 2px solid white;
+  border: 2px solid #ff0c0cb0;
+  -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
 }
 .containerError p {
   font-size: 14px;
@@ -139,6 +150,10 @@ input:focus {
   box-shadow: 0 2px 15px rgba(30, 30, 30, 0.643);
   cursor: pointer;
   transition: all 0.3s;
+  -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
 }
 
 .btnEnviar:hover {
@@ -152,4 +167,12 @@ input[type="submit"]:disabled:hover{
     border: 2px solid rgba(122, 89, 47, 0.864);
     background: rgba(122, 89, 47, 0.864);
     cursor:not-allowed;
+}
+
+.cargando{
+  width: auto;
+  height: 180px;
+  position: absolute;
+  top: 34%;
+  left: 40%;
 }

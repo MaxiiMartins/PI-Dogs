@@ -13,7 +13,7 @@ function LandingPage(){
       </div>
       <div className={style.container}>
         <Link to="/home">
-          <buttom className={style.btn}>Ingresar</buttom>
+          <button className={style.btn}>Ingresar</button>
         </Link>
       </div>
     </div>

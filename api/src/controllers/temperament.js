@@ -25,7 +25,7 @@ const addTemperamentDb = async()=>{
 
         })
         
-    arregTemp.sort().map(async(temp)=> await Temperament.findOrCreate({where:{name: temp}}))
+    arregTemp.map(async(temp)=> await Temperament.findOrCreate({where:{name: temp}}))
 }
 
 // fin 
