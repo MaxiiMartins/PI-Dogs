@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { createDog, getAllTemperaments } from "../../redux/actions";
+import { clearDogs, createDog, getAllTemperaments } from "../../redux/actions";
 import style from "./FormularioDogs.module.css";
 import validacion from "./validaciones"
 import cargando from "../../img/spinner.gif";
@@ -89,7 +89,7 @@ function FormularioDog() {
   return (
     <div className={style.container}>
       <div className={style.nav}>
-        <Link to="/home">
+        <Link to="/home" onClick={() => dispatch(clearDogs())}>
           <button className={style.btn}>Volver</button>
         </Link>
       </div>

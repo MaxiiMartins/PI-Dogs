@@ -13,21 +13,29 @@ export const ORDER_LIFE = "ORDER_LIFE";
 export const FILTER_TEMPERAMENTS = "FILTER_TEMPERAMENTS";
 export const FILTER_DATA_DOGS = "FILTER_DATA_DOGS";
 
-export const getAllDogs = ()=>{
+// export const getAllDogs = ()=>{
 
-    return function(dispatch){
+//     return function(dispatch){
 
-        return(
+//         return(
 
-            axios("http://localhost:3001/dogs")
+//             axios("http://localhost:3001/dogs")
 
-            .then(data => dispatch({type:GET_ALL_DOGS,payload:data}))
+//             .then(data => dispatch({type:GET_ALL_DOGS,payload:data}))
 
-            .catch(error => error)
-        )
+//             .catch(error => error)
+//         )
         
+//     }
+// }
+
+export const getAllDogs = () =>{
+    return async function(dispatch){
+        const data = await axios("http://localhost:3001/dogs")
+        return dispatch({type:GET_ALL_DOGS,payload:data})
     }
 }
+
 // axios => data 
 // fetch => data => data.json => 
 
