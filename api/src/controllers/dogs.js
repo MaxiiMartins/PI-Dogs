@@ -142,8 +142,10 @@ const getAllInfo = async()=>{
   const dataApi = await getAllInfoApi();
   // const dataApi = getAllInfoApiPromise();
   // console.log("data api ",dataApi )
-  const dataDb = await getAllInfoDb();
-  return dataApi.concat(dataDb)
+  // const dataDb = await getAllInfoDb();
+  // return dataApi.concat(dataDb)
+
+  return getAllInfoDb();
 }
 
 const randomImg = ()=>{
